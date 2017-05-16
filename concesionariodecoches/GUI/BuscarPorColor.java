@@ -3,16 +3,25 @@ package concesionariodecoches.GUI;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.ListIterator;
+
 import javax.swing.JOptionPane;
 import concesionariodecoches.estructura.Coche;
+import concesionariodecoches.estructura.Color;
 import concesionariodecoches.estructura.Fichero;
 
+/**
+ * Clase que permite la búsqueda por color
+ * 
+ * @author Guillermo Boquizo Sánchez
+ * @version 2.0
+ *
+ */
 public class BuscarPorColor extends CochesGUI {
 
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Coche> copia = new ArrayList<Coche>();
-	private int indice = 0;
+	private ListIterator<Coche> it;
+	private Coche coche;
 
 	/**
 	 * Create the dialog.
@@ -23,19 +32,32 @@ public class BuscarPorColor extends CochesGUI {
 		actualizarPane();
 		actualizarEventos();
 	}
-
 	/**
-	 * Método que permite mostrar un coche por índice del coche
-	 * 
-	 * @param indiceCoche
-	 *            índice del coche
+	 * Método que permite seleccionar un color entre las opciones dadas en la enumeración
+	 * @return
 	 */
-	private void mostrarCoche(int indiceCoche) {
-		textField_Matricula.setText(copia.get(indiceCoche).getMatricula());
-		combobox_marca.setSelectedItem(copia.get(indiceCoche).getModelo().getMarca());
-		comboBox_modelo.setSelectedItem(copia.get(indiceCoche).getModelo());
+	private Color seleccionarColor() {
+		if (rdbtnRed.isSelected()) {
+			return concesionariodecoches.estructura.Color.ROJO;
+		} else if (rdbtnSilver.isSelected()) {
+			return concesionariodecoches.estructura.Color.PLATA;
+		} else if (rdbtnBlue.isSelected()) {
+			return concesionariodecoches.estructura.Color.AZUL;
+		} else {
+			return null;
+		}
+	}
+	/**
+	 * Método que permite mostrar un coche
+	 * 
+	 */
+	private void mostrarCoche() {
+		textField_Matricula.setText(coche.getMatricula());
+		combobox_marca.setSelectedItem(coche.getModelo().getMarca());
+		comboBox_modelo.setSelectedItem(coche.getModelo());
 		textField_Matricula.setForeground(java.awt.Color.BLACK);
-		seleccionarColor(copia.get(indiceCoche).getColor());
+		seleccionarColor(coche.getColor());
+		comprobarBtnDesplazamiento();
 	}
 
 	/**
@@ -52,20 +74,42 @@ public class BuscarPorColor extends CochesGUI {
 	}
 
 	/**
-	 * Método que comprueba por índice el estado de habilitación/inhabilitación
-	 * de los botones de desplazamiento
+	 * Método que comprueba el estado de habilitación/inhabilitación de los
+	 * botones de desplazamiento
 	 */
 	private void comprobarBtnDesplazamiento() {
-		if (indice + 1 >= copia.size()) {
+		if (!it.hasNext()) {
 			btnDcha.setEnabled(false);
+			coche = it.previous();
 		} else {
 			btnDcha.setEnabled(true);
 		}
-		if (indice - 1 == -1) {
+		if (!it.hasPrevious()) {
 			btnIzda.setEnabled(false);
+			coche = it.next();
 		} else {
 			btnIzda.setEnabled(true);
 		}
+	}
+	
+	/**
+	 * Método que permite iterar hacia adelante 
+	 */
+	private void cocheAdelante() {
+		if (it.hasNext()) {
+			coche = it.next();
+		}
+		mostrarCoche();
+	}
+
+	/**
+	 * Método que permite iterar hacia atrás
+	 */
+	private void cocheAtras() {
+		if (it.hasPrevious()) {
+			coche = it.previous();
+		}
+		mostrarCoche();
 	}
 
 	/**
@@ -92,10 +136,10 @@ public class BuscarPorColor extends CochesGUI {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					indice = 0;
-					copia = Fichero.concesionario.getCochesColor(getSelectedColor());
-					mostrarCoche(indice);
-					comprobarBtnDesplazamiento();
+					it = Fichero.concesionario.getCochesColor(seleccionarColor()).listIterator();
+					coche = it.next();
+					mostrarCoche();
+					btnIzda.setEnabled(false);
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, "No hay coches del color seleccionado!", "Atención",
 							JOptionPane.ERROR_MESSAGE);
@@ -108,8 +152,7 @@ public class BuscarPorColor extends CochesGUI {
 		 */
 		btnDcha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarCoche(++indice);
-				comprobarBtnDesplazamiento();
+				cocheAdelante();
 			}
 		});
 
@@ -119,8 +162,7 @@ public class BuscarPorColor extends CochesGUI {
 		 */
 		btnIzda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarCoche(--indice);
-				comprobarBtnDesplazamiento();
+				cocheAtras();
 			}
 		});
 	}

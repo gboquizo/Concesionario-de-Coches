@@ -13,6 +13,13 @@ import concesionariodecoches.estructura.Fichero;
 import concesionariodecoches.estructura.excepciones.CocheNoExisteException;
 import concesionariodecoches.estructura.excepciones.MatriculaNoValidaException;
 
+/**
+ * Clase que permite buscar por matrícula un coche
+ * 
+ * @author Guillermo Boquizo Sánchez
+ * @version 2.0
+ *
+ */
 public class BuscarPorMatricula extends CochesGUI {
 
 	private static final long serialVersionUID = 1L;

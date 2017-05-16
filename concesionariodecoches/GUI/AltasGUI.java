@@ -24,7 +24,7 @@ import java.awt.event.ActionEvent;
  * Clase que gestiona la GUI de altas del concesionario
  * 
  * @author Guillermo Boquizo Sánchez
- * @version 1.0
+ * @version 2.0
  *
  */
 public class AltasGUI extends CochesGUI {

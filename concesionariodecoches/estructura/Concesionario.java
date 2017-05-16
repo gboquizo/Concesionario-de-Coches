@@ -2,6 +2,7 @@ package concesionariodecoches.estructura;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 import concesionariodecoches.estructura.excepciones.CocheNoExisteException;
 import concesionariodecoches.estructura.excepciones.CocheYaExisteException;
@@ -134,25 +135,15 @@ public class Concesionario implements Serializable {
 		return arrCochesColor;
 	}
 
-	public String[][] toArray(){
+	public String[][] toArray() {
 		String[][] array = new String[almacen.size()][3];
 		for (int i = 0; i < array.length; i++) {
 			array[i][0] = almacen.get(i).getMatricula();
 			array[i][1] = String.valueOf(almacen.get(i).getColor());
 			array[i][2] = String.valueOf(almacen.get(i).getModelo());
 		}
-		
-		return array;	
-	}
-	
-	/**
-	 * Obtiene un coche por indice
-	 * 
-	 * @param indice
-	 * @return
-	 */
-	public Coche get(int indice) {
-		return almacen.get(indice);
+
+		return array;
 	}
 
 	/**
@@ -163,5 +154,19 @@ public class Concesionario implements Serializable {
 	 */
 	public boolean checkMatricula(String text) {
 		return Coche.esValida(text);
-}
+
+	}
+	public ListIterator<Coche> listIterator() {
+		return almacen.listIterator();
+	}
+	
+	public ListIterator<Coche> listIterator(int index) {
+		return almacen.listIterator(index);
+	}
+
+	public int indexOf(Coche coche) {
+		// TODO Auto-generated method stub
+		return almacen.indexOf(coche);
+	}
+	
 }

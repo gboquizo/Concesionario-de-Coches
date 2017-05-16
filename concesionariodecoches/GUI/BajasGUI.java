@@ -14,10 +14,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * Clase que gestiona las bajas del concesionario
+ * Clase que gestiona la GUI de bajas del concesionario
  * 
  * @author Guillermo Boquizo Sánchez
- * @version 1.0
+ * @version 2.0
  *
  */
 public class BajasGUI extends CochesGUI {

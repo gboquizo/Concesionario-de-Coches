@@ -16,7 +16,7 @@ import javax.swing.JTextPane;
  * Clase para la ventana GUI AcercaDe
  * 
  * @author Guillermo Boquizo Sánchez
- * @version 1.0
+ * @version 2.0
  *
  */
 public class AcercaDe extends JDialog {
