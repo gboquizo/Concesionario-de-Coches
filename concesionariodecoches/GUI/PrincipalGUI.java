@@ -17,6 +17,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.NoSuchElementException;
 import java.awt.event.InputEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -245,7 +246,7 @@ public class PrincipalGUI extends JFrame implements Serializable {
 				try {
 					CochesGUI mostrar = new MostrarConcesionario();
 					mostrar.setVisible(true);
-				} catch (IndexOutOfBoundsException e) {
+				} catch (IndexOutOfBoundsException  |NoSuchElementException e) {
 					JOptionPane.showMessageDialog(null, "¡Concesionario vacío!", "?", JOptionPane.ERROR_MESSAGE);
 				}
 			}

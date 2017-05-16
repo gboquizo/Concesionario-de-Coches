@@ -26,6 +26,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
+/**
+ * Clase padre de todas las ventanas de tipo JDialog
+ * 
+ * @author Guillermo Boquizo Sánchez
+ * @version 2.0
+ *
+ */
 public class CochesGUI extends JDialog {
 
 	private static final long serialVersionUID = 1L;

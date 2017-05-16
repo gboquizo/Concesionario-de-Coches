@@ -18,7 +18,7 @@ import javax.swing.JScrollPane;
  * Clase para la ventana GUI de ayuda
  * 
  * @author Guillermo Boquizo Sánchez
- * @version 1.0
+ * @version 2.0
  *
  */
 public class Ayuda extends JDialog {
