@@ -3,7 +3,7 @@
  */
 /**
  * @author Guillermo Boquizo Sánchez
- * @version 1.0
+ * @version 2.0
  *
  */
 package concesionariodecoches.estructura.excepciones;

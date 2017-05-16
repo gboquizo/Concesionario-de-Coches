@@ -2,8 +2,8 @@
  * 
  */
 /**
- * @author Guillermo Boquizo Sánchez
- * @version 1.0
+ * @author Guillermo Boquizo SÃ¡nchez
+ * @version 2.0
  *
  */
 package resources;
