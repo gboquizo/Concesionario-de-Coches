@@ -47,6 +47,7 @@ public class CochesGUI extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public CochesGUI() {
 		setResizable(false);
 		setModal(true);
