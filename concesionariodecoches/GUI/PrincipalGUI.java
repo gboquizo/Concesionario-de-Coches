@@ -28,7 +28,6 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
 /**
  * 
  * <h1>Concesionario de coches con Ficheros y GUI</h1>
@@ -113,7 +112,7 @@ import java.awt.event.WindowEvent;
  */
 public class PrincipalGUI extends JFrame implements Serializable {
 
-	private JPanel contentPane = new PanelFondo();
+	private JPanel contentPane = new FondoPrincipal();
 	private final Filtro filter = new Filtro(".obj", "Objeto");
 	private static final long serialVersionUID = 1L;
 	private JFileChooser jFilechooser = new JFileChooser();
@@ -246,7 +245,7 @@ public class PrincipalGUI extends JFrame implements Serializable {
 				try {
 					CochesGUI mostrar = new MostrarConcesionario();
 					mostrar.setVisible(true);
-				} catch (IndexOutOfBoundsException  |NoSuchElementException e) {
+				} catch (IndexOutOfBoundsException | NoSuchElementException e) {
 					JOptionPane.showMessageDialog(null, "¡Concesionario vacío!", "?", JOptionPane.ERROR_MESSAGE);
 				}
 			}
@@ -318,7 +317,6 @@ public class PrincipalGUI extends JFrame implements Serializable {
 		mnAyuda.add(separador_1);
 		mnAyuda.add(mntmAcercaDe);
 
-	
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
