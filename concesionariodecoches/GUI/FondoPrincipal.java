@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class PanelFondo extends JPanel {
+public class FondoPrincipal extends JPanel {
 
 	/**
 	 * 
@@ -16,7 +16,7 @@ public class PanelFondo extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelFondo() {
+	public FondoPrincipal() {
 		this.setSize(400, 280);
 	}
 

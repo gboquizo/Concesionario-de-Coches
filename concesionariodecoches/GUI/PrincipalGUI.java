@@ -113,7 +113,7 @@ import java.awt.event.WindowEvent;
  */
 public class PrincipalGUI extends JFrame implements Serializable {
 
-	private JPanel contentPane = new PanelFondo();
+	private JPanel contentPane = new FondoPrincipal();
 	private final Filtro filter = new Filtro(".obj", "Objeto");
 	private static final long serialVersionUID = 1L;
 	private JFileChooser jFilechooser = new JFileChooser();
