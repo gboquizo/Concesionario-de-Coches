@@ -2,17 +2,11 @@ package concesionariodecoches.GUI;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Toolkit;
-import javax.swing.JScrollPane;
-import java.awt.Font;
-import java.awt.BorderLayout;
-import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
