@@ -43,9 +43,9 @@ public class AcercaDe extends JDialog {
 		contentPanel.setLayout(null);
 
 		JLabel lblAcercaDe = new JLabel(
-				"<html>\r\n<h1>I.E.S Gran Capitán, 2017</h1>\t\r\n\r\n<h2>Concesionario de coches.</h2>\r\n<ul>\r\n\t<li>Desarrollado por:</li>\r\n\t\t\r\n\t\t\t<p>Guillermo Boquizo Sánchez</p>\r\n\r\n\t\t\t<p>Versión: 1.0</p>\r\n\t\r\n\t\t\t<p>Abril - Mayo 2017</p>\r\n</ul>\r\n</html>");
+				"<html>\r\n<h1>I.E.S Gran Capitán, 2017</h1>\t\r\n\r\n<h2>Concesionario de coches.</h2>\r\n<ul>\r\n\t<li>Desarrollado por:</li>\r\n\t\t\r\n\t\t\t<p>Guillermo Boquizo Sánchez</p>\r\n\r\n\t\t\t<p>Versión: 2.0</p>\r\n\t\r\n\t\t\t<p>Abril - Mayo 2017</p>\r\n</ul>\r\n</html>");
 		lblAcercaDe.setForeground(new Color(30, 144, 255));
-		lblAcercaDe.setBounds(97, 11, 424, 185);
+		lblAcercaDe.setBounds(10, 11, 424, 185);
 		getContentPane().add(lblAcercaDe);
 		lblAcercaDe.setHorizontalAlignment(SwingConstants.CENTER);
 
