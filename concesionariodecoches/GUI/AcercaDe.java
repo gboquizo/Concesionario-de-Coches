@@ -5,12 +5,17 @@ import javax.swing.JPanel;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Toolkit;
 import javax.swing.JScrollPane;
 import java.awt.Font;
 import java.awt.BorderLayout;
 import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Color;
 
 /**
  * Clase para la ventana GUI AcercaDe
@@ -31,41 +36,43 @@ public class AcercaDe extends JDialog {
 	 * Create the dialog.
 	 */
 	public AcercaDe() {
+		getContentPane().setBackground(new Color(173, 216, 230));
 		setTitle("Acerca de...\r\n");
 		setModal(true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(AcercaDe.class.getResource("/resources/favicon.png")));
 		setResizable(false);
-		setBounds(100, 100, 450, 342);
+		setBounds(100, 100, 605, 550);
 		getContentPane().setLayout(null);
-		getContentPane().add(contentPanel);
 		contentPanel.setBounds(0, 0, 0, 0);
+		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
-
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 434, 275);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		getContentPane().add(scrollPane);
-
-		JTextPane txtpnConcesionarioDeCoches = new JTextPane();
-		txtpnConcesionarioDeCoches.setEditable(false);
-		txtpnConcesionarioDeCoches.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		txtpnConcesionarioDeCoches.setText(
-				"\r\nI.E.S Gran Capit\u00E1n, 2017\t\r\n\r\nConcesionario de coches.\t\r\n\r\n\t\r\n\r\nDesarrollado por:\r\n\r\nGuillermo Boquizo S\u00E1nchez\r\n\r\nVersi\u00F3n: 1.0\r\n\r\nAbril - Mayo 2017\r\n\r\n\r\n\r\n\r\n\r\n");
-		scrollPane.setViewportView(txtpnConcesionarioDeCoches);
-
-		JPanel buttonPane = new JPanel();
-		buttonPane.setBounds(269, 271, 140, 42);
-		getContentPane().add(buttonPane, BorderLayout.SOUTH);
-
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-			}
-		});
-		buttonPane.setLayout(null);
-		btnAceptar.setBounds(10, 11, 104, 23);
-		buttonPane.add(btnAceptar);
+														
+														JLabel lblAcercaDe = new JLabel("<html>\r\n<h1>I.E.S Gran Capitán, 2017</h1>\t\r\n\r\n<h2>Concesionario de coches.</h2>\r\n<ul>\r\n\t<li>Desarrollado por:</li>\r\n\t\t\r\n\t\t\t<p>Guillermo Boquizo Sánchez</p>\r\n\r\n\t\t\t<p>Versión: 1.0</p>\r\n\t\r\n\t\t\t<p>Abril - Mayo 2017</p>\r\n</ul>\r\n</html>");
+														lblAcercaDe.setForeground(new Color(30, 144, 255));
+														lblAcercaDe.setBounds(97, 11, 424, 185);
+														getContentPane().add(lblAcercaDe);
+														lblAcercaDe.setHorizontalAlignment(SwingConstants.CENTER);
+														
+														JLabel lblimagen = new JLabel("");
+														lblimagen.setForeground(Color.WHITE);
+														lblimagen.setBounds(35, 195, 414, 300);
+														getContentPane().add(lblimagen);
+														
+														JPanel panel = new JPanel();
+														panel.setBackground(new Color(173, 216, 230));
+														panel.setLayout(null);
+														panel.setBounds(456, 403, 133, 92);
+														getContentPane().add(panel);
+														
+														JButton btnSalir = new JButton("Aceptar");
+														btnSalir.addActionListener(new ActionListener() {
+															public void actionPerformed(ActionEvent e) {
+																dispose();
+															}
+														});
+														btnSalir.setBounds(10, 33, 117, 48);
+														panel.add(btnSalir);
+														lblimagen.setIcon(new ImageIcon(PrincipalGUI.class.getResource("/resources/coche.gif")));
 	}
 }

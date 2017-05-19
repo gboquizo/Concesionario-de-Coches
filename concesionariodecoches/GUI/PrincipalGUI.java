@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
-
+import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import javax.swing.JFileChooser;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JLabel;
+
 
 /**
  * 
@@ -113,7 +113,7 @@ import javax.swing.JLabel;
  */
 public class PrincipalGUI extends JFrame implements Serializable {
 
-	private JPanel contentPane;
+	private JPanel contentPane = new PanelFondo();
 	private final Filtro filter = new Filtro(".obj", "Objeto");
 	private static final long serialVersionUID = 1L;
 	private JFileChooser jFilechooser = new JFileChooser();
@@ -139,6 +139,7 @@ public class PrincipalGUI extends JFrame implements Serializable {
 	 * Create the frame.
 	 */
 	public PrincipalGUI() {
+		contentPane.setVisible(true);
 		jFilechooser.setSelectedFile(new File(""));
 		setTitle("Sin titulo");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -317,15 +318,10 @@ public class PrincipalGUI extends JFrame implements Serializable {
 		mnAyuda.add(separador_1);
 		mnAyuda.add(mntmAcercaDe);
 
-		contentPane = new JPanel();
+	
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel lblimagen = new JLabel("");
-		lblimagen.setIcon(new ImageIcon(PrincipalGUI.class.getResource("/resources/coche.gif")));
-		lblimagen.setBounds(5, 5, 424, 235);
-		contentPane.add(lblimagen);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		cerrar();
 	}
 
