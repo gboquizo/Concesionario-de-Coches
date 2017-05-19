@@ -2,7 +2,6 @@ package concesionariodecoches.GUI;
 
 import java.awt.EventQueue;
 import java.awt.HeadlessException;
-
 import concesionariodecoches.estructura.*;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -25,10 +24,10 @@ import javax.swing.JSeparator;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JLabel;
 
 /**
  * 
@@ -320,8 +319,13 @@ public class PrincipalGUI extends JFrame implements Serializable {
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblimagen = new JLabel("");
+		lblimagen.setIcon(new ImageIcon(PrincipalGUI.class.getResource("/resources/coche.gif")));
+		lblimagen.setBounds(5, 5, 424, 235);
+		contentPane.add(lblimagen);
 		cerrar();
 	}
 
