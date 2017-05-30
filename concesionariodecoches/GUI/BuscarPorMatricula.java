@@ -88,7 +88,8 @@ public class BuscarPorMatricula extends CochesGUI {
 	/**
 	 * Método que permite mostrar un coche por el índice del mismo
 	 * 
-	 * @param indiceCoche id del coche
+	 * @param indiceCoche
+	 *            id del coche
 	 */
 	private void mostrarCoche(int indiceCoche) {
 		textField_Matricula.setForeground(java.awt.Color.BLACK);
